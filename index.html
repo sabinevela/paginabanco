@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Banca Web - Banco Pichincha</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f6f8fa;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    .left-panel {
+      width: 50%;
+      background: #fff;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .left-panel h2 {
+      font-size: 28px;
+      color: #122049;
+      font-family: 'Georgia', serif;
+    }
+
+    .left-panel p {
+      font-size: 14px;
+      color: #2b2f38;
+    }
+
+    .secure-url {
+      background: #f0f2f4;
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #2b2f38;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .secure-url::before {
+      content: "🔒";
+    }
+
+    .illustration {
+      width: 160px;
+      margin: 0 auto;
+    }
+
+    .right-panel {
+      width: 50%;
+      background-color: #f6f8fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .form-box h3 {
+      font-family: 'Georgia', serif;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #122049;
+    }
+
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .form-links {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -12px;
+      margin-bottom: 12px;
+    }
+
+    .form-links a {
+      font-size: 13px;
+      color: #0042b1;
+      text-decoration: none;
+    }
+
+    .form-links a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      width: 100%;
+      background-color: #fff3b0;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .extras {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .extra-box {
+      flex: 1;
+      background-color: white;
+      padding: 12px;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 13px;
+      border: 1px solid #ddd;
+    }
+
+    .extra-box span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-panel,
+      .right-panel {
+        width: 100%;
+      }
+
+      .left-panel {
+        text-align: center;
+        padding: 40px;
+      }
+
+      .right-panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left-panel">
+      <img src="https://www.pichincha.com/etc.clientlibs/settings/wcm/designs/pichincha/clientlibs/clientlib-site/resources/img/logo.svg" alt="Banco Pichincha" width="150">
+      <h2>Verifica en tu navegador que estás en Banca Web.</h2>
+      <div class="secure-url">https://bancaweb.pichincha.com/pichincha/login</div>
+      <img class="illustration" src="https://cdni.iconscout.com/illustration/premium/thumb/secure-login-6330764-5225822.png" alt="Ilustración segura">
+      <p>01. Cuida tu usuario y contraseña</p>
+      <p>02. Antes de ingresar la Clave Digital verifica que los 4 últimos dígitos de tu cédula sean correctos.</p>
+    </div>
+
+    <div class="right-panel">
+      <div class="form-box">
+        <h3>Bienvenido a tu Banca Web</h3>
+        <label for="user">Usuario</label>
+        <input type="text" id="user" placeholder="Ingresa tu usuario">
+        <div class="form-links">
+          <a href="#">¿Olvidaste tu usuario?</a>
+        </div>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Ingresa tu contraseña">
+        <div class="form-links">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button class="btn" onclick="login()">Ingresar</button>
+
+        <div class="extras">
+          <div class="extra-box">
+            <span>🔒</span>
+            ¿Cuenta bloqueada?<br><a href="#">Desbloquéala aquí</a>
+          </div>
+          <div class="extra-box">
+            <span>👤</span>
+            ¿Usuario nuevo?<br><a href="#">Regístrate ahora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById('user').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      if (!user || !pass) {
+        alert("Por favor completa todos los campos.");
+      } else {
+        alert("Inicio de sesión simulado para: " + user);
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
