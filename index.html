@@ -1,226 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Banca Web - Banco Pichincha</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bancaweb</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/c/cc/Banco-Pichincha.png" type="image/jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f6f8fb;
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Antic Slab', serif;
     }
-
-    .container {
-      display: flex;
-      width: 100%;
-      max-width: 1100px;
-      height: 80%;
+    body {
+      background-color: #f6f7fb;
+      font-family: 'Antic Slab', serif;
     }
-
-    .left {
-      flex: 1;
-      background-color: white;
-      padding: 60px;
+    .contenedor {
+      display: flex;
+      min-height: 100vh;
+    }
+    .lado-izquierdo {
+      width: 50%;
+      background-color: #ffffff;
+      padding: 40px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 30px;
     }
-
-    .left img.logo {
+    .logo {
       width: 180px;
-      margin-bottom: 40px;
-    }
-
-    .left h1 {
-      color: #0f265c;
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-
-    .secure-box {
-      background: #f1f3f4;
-      padding: 10px 20px;
-      border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 20px;
-    }
-
-    .left img.illustration {
-      max-width: 350px;
-      margin-top: 20px;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
-
-    .tips {
-      margin-top: 40px;
-      font-size: 14px;
+    h1 {
+      font-size: 28px;
+      color: #0f2676;
+      line-height: 1.4;
+      text-align: center;
+      font-weight: normal; 
+    }
+    h2 {
+      font-size: 24px;
+      color: #0f2676;
+      margin-bottom: 20px;
+      text-align: center; 
+      font-weight: normal; 
+    }
+    .illustration {
+      width: 300px;
+    }
+    .recomendaciones {
+      list-style: decimal;
+      padding-left: 20px;
+      font-size: 15px;
       color: #333;
-    }
-
-    .tips p {
-      margin: 8px 0;
-    }
-
-    .right {
-      flex: 1;
-      background-color: #f6f8fb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .form-container {
-      background-color: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      width: 100%;
       max-width: 400px;
     }
-
-    .form-container h2 {
-      color: #0f265c;
-      margin-bottom: 20px;
-      font-size: 24px;
+    .lado-derecho {
+      width: 50%;
+      background-color: #f6f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
-    input {
+    .formulario {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      height: 550px;
+      max-width: 450px;
+    }
+    .formulario label {
+      display: block;
+      margin-top: 10px;
+      color: #333;
+    }
+    .formulario input {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 10px;
+      margin: 5px 0 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 14px;
     }
-
-    button {
-      background-color: #ffee88;
-      border: none;
-      color: #666;
+    .formulario a {
       font-weight: bold;
+      display: block;
+      font-size: 11px;
+      color: #2f7abf;
+      text-decoration: none;
+      margin-bottom: 10px;
+      text-align: right; 
+    }
+    .btnes-opcion{
+      color: #0f265c;
+       display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .btn-ingresar {
       width: 100%;
       padding: 12px;
-      font-size: 16px;
+      background-color: #fff176;
+      color: #333;
+      border: none;
       border-radius: 5px;
-      cursor: pointer;
+      cursor: not-allowed;
       margin-top: 10px;
+      font-weight: bold;
     }
-
-    .form-container a {
-      font-size: 12px;
-      color: #0f265c;
-      text-decoration: none;
-      display: block;
-      text-align: right;
-      margin-top: 5px;
+    .btn-ingresar:enabled {
+      cursor: pointer;
+      background-color: #ffeb3b;
     }
-
-    .form-footer {
+    .opciones {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 30px;
       margin-top: 30px;
+    }
+    .opcion {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       font-size: 12px;
       text-align: center;
     }
-
-    .form-footer div {
-      flex: 1;
-      background-color: #f9f9f9;
-      padding: 15px;
-      margin: 5px;
-      border-radius: 10px;
-    }
-
-    .form-footer img {
-      width: 30px;
+    .opcion img {
+      width: 40px;
       height: auto;
-      margin-bottom: 10px;
-    }
-
-    .form-footer i {
-      display: block;
-      font-size: 20px;
       margin-bottom: 5px;
     }
-
-    .terms {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-    }
-
-    .terms a {
-      color: #0f265c;
+    .terminos {
+      font-size: 13px;
+      color: #2f7abf;
       text-decoration: none;
+      font-weight: bold;
+    }
+    .copyright {
+      font-weight: normal;
+      color: #333;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
-  <div class="left">
-    <img src="https://logosenvector.com/logo/img/banco-pichincha-4344.jpg" class="logo" alt="Logo Banco Pichincha">
-    <h1>Verifica en tu navegador que estás<br>en Banca Web.</h1>
-    <img src="https://bancaweb.pichincha.com/assets/main-image.svg" class="illustration" alt="Verificación">
-    <div class="tips">
-      <p>01. Cuida tu usuario y contraseña</p>
-      <p>02. Verifica que los 4 últimos dígitos de tu cédula sean correctos</p>
+  <div class="contenedor">
+    <div class="lado-izquierdo">
+      <img src="https://logosenvector.com/logo/img/banco-pichincha-4344.jpg" class="logo" alt="Logo Banco Pichincha">
+      <h1>Verifica en tu navegador que estás<br>en Banca Web.</h1>
+      <img src="https://bancaweb.pichincha.com/assets/main-image.svg" class="illustration" alt="Verificación">
+      <ol class="recomendaciones">
+        <li>Cuida tu usuario y contraseña</li>
+        <li>Antes de ingresar la Clave Digital verifica que los 4 últimos dígitos de tu cédula sean correctos.</li>
+      </ol>
+      <a href="#" class="terminos">Términos de uso <span class="copyright">© 2025 Banco Pichincha. Todos los derechos reservados.</span></a>
     </div>
-  </div>
-
-  <div class="right">
-    <div class="form-container">
-      <h2>Bienvenido a tu Banca Web</h2>
-      <label>Usuario</label>
-      <input type="text" id="user" placeholder="Ingrese su usuario">
-      <a href="#">¿Olvidaste tu usuario?</a>
-
-      <label>Contraseña</label>
-      <input type="password" id="password" placeholder="Ingrese su contraseña">
-      <a href="#">¿Olvidaste tu contraseña?</a>
-
-      <button onclick="login()">Ingresar</button>
-
-      <div class="form-footer">
-        <div>
-          <img src="./candadologo.png" alt="Icono desbloqueo"><br>
-          <strong>¿Cuenta bloqueada?</strong><br>
-          Desbloquéala aquí
-        </div>
-        <div>
-          <img src="./userlogo.png" alt="Icono registro"><br>
-          <strong>¿Usuario nuevo?</strong><br>
-          Regístrate ahora
+    <div class="lado-derecho">
+      <div class="formulario">
+        <h2>Bienvenido a tu Banca Web</h2>
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" />
+        <a href="#">¿Olvidaste tu usuario?</a>
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" />
+        <a href="#">¿Olvidaste tu contraseña?</a> 
+        <button class="btn-ingresar" id="btn-ingresar" disabled>Ingresar</button>
+        <div class="opciones">
+          <div class="opcion">
+            <img src="./candadologo.png" alt="Icono desbloqueo">
+            <a href="#">¿Cuenta bloqueada?<br>Desbloquéala aquí</a>
+          </div>
+          <div class="opcion">
+            <img src="./userlogo.png" alt="Icono registro">
+            <a href="#">¿Usuario nuevo?<br>Regístrate ahora</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
   <script>
-    function login() {
-      const user = document.getElementById('user').value.trim();
-      const pass = document.getElementById('password').value.trim();
-      if (!user || !pass) {
-        alert("Por favor completa todos los campos.");
+    const usuarioInput = document.getElementById('usuario');
+    const contrasenaInput = document.getElementById('contrasena');
+    const btnIngresar = document.getElementById('btn-ingresar');
+
+    function verificarCampos() {
+      if (usuarioInput.value.trim() !== '' && contrasenaInput.value.trim() !== '') {
+        btnIngresar.disabled = false; 
       } else {
-        window.location.href = "https://bancaweb.pichincha.com/pichincha/login";
+        btnIngresar.disabled = true; 
       }
     }
+    usuarioInput.addEventListener('input', verificarCampos);
+    contrasenaInput.addEventListener('input', verificarCampos);
+    verificarCampos();
+    btnIngresar.addEventListener('click', function() {
+      window.location.href = 'https://www.pichincha.com/banca-web';
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
